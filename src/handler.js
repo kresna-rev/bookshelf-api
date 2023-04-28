@@ -1,6 +1,5 @@
-const { nanoid } = require('nanoid');
-const books = require('./books');
-const { request } = require('http');
+const { nanoid } = require('nanoid')
+const books = require('./books')
 
 const addBookHandler = (request, h) => {
     const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload
@@ -9,8 +8,8 @@ const addBookHandler = (request, h) => {
         const response = h.response({
         status: 'fail',
         message: 'Gagal menambahkan buku. Mohon isi nama buku',
-        });
-        response.code(400);
+        })
+        response.code(400)
 
         return response
     }
@@ -105,7 +104,7 @@ const getAllBooksHandler = (request, h) => {
 
 const getBookByIdHandler = (request, h) => {
     const { bookId } = request.params
-    const book = books.filter((b) => b.id === bookId)[0]
+    const book = books.filter((buku) => buku.id === bookId)[0]
 
     if (book !== undefined) {
         return {
